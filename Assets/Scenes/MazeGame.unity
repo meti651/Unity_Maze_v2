@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsPaused: 0
+  QuitGameName: MainMenu
   PauseMenuUI: {fileID: 2045747740}
 --- !u!114 &370500061
 MonoBehaviour:
@@ -3402,6 +3403,16 @@ PrefabInstance:
       propertyPath: column
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2044549456632106958, guid: ed562f86511e8d74fb257420916fa955,
+        type: 3}
+      propertyPath: FinishCellFloor
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c8259bdf7239fb44ae40b5314a406f3, type: 2}
+    - target: {fileID: 2044549456632106958, guid: ed562f86511e8d74fb257420916fa955,
+        type: 3}
+      propertyPath: StartingCellFloor
+      value: 
+      objectReference: {fileID: 2100000, guid: 58ad2a53316e415418e3f318f5e45d4d, type: 2}
     - target: {fileID: 3580038630359711745, guid: ed562f86511e8d74fb257420916fa955,
         type: 3}
       propertyPath: m_Name
