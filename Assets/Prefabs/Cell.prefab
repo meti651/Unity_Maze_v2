@@ -49,11 +49,11 @@ MonoBehaviour:
   EastWall: {fileID: 0}
   SouthWall: {fileID: 0}
   WestWall: {fileID: 0}
+  IsFinish: 0
+  FinishCellFloor: {fileID: 2100000, guid: 5c8259bdf7239fb44ae40b5314a406f3, type: 2}
   X_Position: 0
   Y_Position: 0
   Siblings: []
-  IsFinish: 0
-  IsPlayerIn: 0
   Links: []
 --- !u!114 &5490794001930015191
 MonoBehaviour:

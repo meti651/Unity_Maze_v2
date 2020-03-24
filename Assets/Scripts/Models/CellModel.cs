@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[Serializable]
 public class CellModel : MonoBehaviour
 {
     public string Name;
@@ -11,13 +12,11 @@ public class CellModel : MonoBehaviour
     public GameObject EastWall;
     public GameObject SouthWall;
     public GameObject WestWall;
+    public bool IsFinish;
     public float X_Position;
     public float Y_Position;
     public List<GameObject> Siblings;
-    public bool IsFinish;
-    public bool IsPlayerIn;
     public List<GameObject> Links;
-
 
 
     public GameObject GetRandomUnvisitedSibling(HashSet<GameObject> visitedCells)
@@ -72,6 +71,7 @@ public class CellModel : MonoBehaviour
         }
         Links.Add(cellGameObject);
         cellGameObject.GetComponent<CellModel>().Links.Add(this.transform.gameObject);
+        
     }
 
     public void AddSibling(GameObject cellGameObject)
@@ -84,7 +84,7 @@ public class CellModel : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Siblings = new List<GameObject>();
         Links = new List<GameObject>();

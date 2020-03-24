@@ -38,7 +38,7 @@ public class CellConstruct : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             Vector3 verticalWallPosition = new Vector3(initialXPosition + (i * wallLenght) - wallLenght / 2, initialYPosition, initialZPosition);
-            wall.transform.localScale = new Vector3(wall.transform.localScale.x, wallLenght, wallLenght);
+            wall.transform.localScale = new Vector3(wallLenght / 10, wallLenght, wallLenght);
             verticalWall = Instantiate(wall, verticalWallPosition, Quaternion.identity);
             verticalWall.transform.parent = this.transform;
         }

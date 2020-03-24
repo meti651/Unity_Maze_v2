@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +9,13 @@ public class MazeModel : MonoBehaviour
     public int row;
     public int column;
     public GameObject[,] m_cells;
+    public List<GameObject> Cells;
     public GameObject StartingCell;
     public GameObject FinishCell;
     public float wallLenght;
+
+    public Material StartingCellFloor;
+    public Material FinishCellFloor;
 
 
     // Start is called before the first frame update
@@ -21,10 +26,21 @@ public class MazeModel : MonoBehaviour
         StartingCell = m_cells[0, 0];
         FinishCell = m_cells[row - 1, column - 1];
         FinishCell.GetComponent<CellModel>().IsFinish = true;
+        ChangeFloorMaterial();
         //StartCoroutine("DepthFirstGenerator");
         DepthFirstGenerator();
+    }
 
+    private void ChangeFloorMaterial()
+    {
+        int startChildrenNum = StartingCell.transform.childCount;
+        int finishChildrenNum = FinishCell.transform.childCount;
 
+        GameObject startFloor = StartingCell.transform.GetChild(startChildrenNum - 1).gameObject;
+        GameObject finishFloor = FinishCell.transform.GetChild(finishChildrenNum - 1).gameObject;
+
+        startFloor.GetComponent<MeshRenderer>().material = StartingCellFloor;
+        finishFloor.GetComponent<MeshRenderer>().material = FinishCellFloor;
     }
 
     void DepthFirstGenerator()
@@ -84,8 +100,10 @@ public class MazeModel : MonoBehaviour
                     GameObject northCell = m_cells[xPos - 1, yPos];
                     currentCellModel.AddSibling(northCell);
                 }
+                
             }
         }
+
     }
 
     private void CreateCells()
@@ -112,6 +130,7 @@ public class MazeModel : MonoBehaviour
     private void InitializeNewCell(GameObject newCell, int x_pos, int y_pos)
     {
         CellModel cell = newCell.GetComponent<CellModel>();
+        cell.Name = "Cell x: " + x_pos + " y: " + y_pos;
         cell.X_Position = x_pos;
         cell.Y_Position = y_pos;
         newCell.transform.parent = this.transform;
