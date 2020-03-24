@@ -10,6 +10,7 @@ public class StartMenuController : MonoBehaviour
     public TextMeshProUGUI rowNum;
     public TextMeshProUGUI columnNum;
     public GameObject StartMenu;
+    public GameObject Camera;
 
     public void SetMazeActive()
     {
@@ -19,6 +20,9 @@ public class StartMenuController : MonoBehaviour
         MazeModel maze = Maze.GetComponent<MazeModel>();
         maze.row = row;
         maze.column = column;
+
+        Vector3 cameraPosition = new Vector3(row / 2, (row + column) * 3 / 4, column / 2);
+        Camera.transform.position = cameraPosition;
 
         StartMenu.SetActive(false);
         Maze.SetActive(true);
