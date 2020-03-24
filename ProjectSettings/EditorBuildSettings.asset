@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MazeGame.unity
     guid: fc3df6baebb9793468a5a6bff042cdb4
   - enabled: 1
-    path: Assets/Scenes/VisualizationMaze.unity
-    guid: f34c37b98e850184b9ce0f719316956c
-  - enabled: 1
     path: Assets/Scenes/PathFinder.unity
     guid: 5ef3acf44b709a14abc773d5de11c0d0
   m_configObjects: {}
